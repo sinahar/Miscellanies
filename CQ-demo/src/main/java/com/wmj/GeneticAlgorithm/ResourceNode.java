@@ -49,7 +49,10 @@ public class ResourceNode implements Runnable{
         }
     }
 
-    // 处理任务
+    /**
+     * 处理任务
+     * @param task
+     */
     public void processTask(Task task) {
         try {
             // 模拟任务处理时间（简化模型：处理时间 = 数据大小 / (CPU * 内存 * 带宽)）
@@ -64,7 +67,10 @@ public class ResourceNode implements Runnable{
         }
     }
 
-    // 添加任务到队列
+    /**
+     * 添加任务到队列
+     * @param task
+     */
     public void addTask(Task task) {
         try {
             taskQueue.put(task);
@@ -75,12 +81,17 @@ public class ResourceNode implements Runnable{
         }
     }
 
-    // 停止线程
+    /**
+     * 停止线程
+     */
     public void stop() {
         isRunning = false;
     }
 
-    // 获取已处理任务列表
+    /**
+     * 获取已处理任务列表
+     * @return
+     */
     public List<Task> getProcessedTasks() {
         return new ArrayList<>(processedTasks);
     }

@@ -13,7 +13,14 @@ import java.util.List;
  */
 public class VideoStreamSplitter {
 
-    // 分割视频流为每10帧一个任务
+    /**
+     * 分割视频流为每10帧一个任务
+     * @param videoPath
+     * @param totalFrames
+     * @param dataSizePerFrame
+     * @param priority
+     * @return
+     */
     public static List<Task> splitVideoStream(String videoPath, int totalFrames, double dataSizePerFrame, int priority) {
         List<Task> tasks = new ArrayList<>();
         for (int i = 0; i < totalFrames; i += 10) {

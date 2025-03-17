@@ -1,5 +1,6 @@
 package com.wmj.GeneticAlgorithm;
 
+import com.wmj.GeneticAlgorithm.utils.ResultAggregator;
 import com.wmj.GeneticAlgorithm.utils.VideoStreamSplitter;
 
 import java.util.ArrayList;

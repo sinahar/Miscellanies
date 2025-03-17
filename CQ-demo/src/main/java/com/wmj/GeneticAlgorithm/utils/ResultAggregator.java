@@ -1,4 +1,7 @@
-package com.wmj.GeneticAlgorithm;
+package com.wmj.GeneticAlgorithm.utils;
+
+import com.wmj.GeneticAlgorithm.ResourceNode;
+import com.wmj.GeneticAlgorithm.Task;
 
 import java.util.List;
 import java.util.Map;
@@ -20,7 +23,7 @@ public class ResultAggregator {
         // 收集所有节点的已处理任务
         for (ResourceNode node : resourceNodes) {
             for (Task task : node.getProcessedTasks()) {
-                for (int frame = task.frameStart; frame <= task.frameEnd; frame++) {
+                for (int frame = task.getFrameStart(); frame <= task.getFrameEnd(); frame++) {
                     frameTaskMap.put(frame, task);
                 }
             }
@@ -31,7 +34,7 @@ public class ResultAggregator {
         for (int frame = 0; frame < totalFrames; frame++) {
             Task task = frameTaskMap.get(frame);
             if (task != null) {
-                System.out.printf("帧%d由任务%d处理，节点%d%n", frame, task.taskId, task.frameStart);
+                System.out.printf("帧%d由任务%d处理，节点%d%n", frame, task.getTaskId(), task.getFrameStart());
             } else {
                 System.out.printf("帧%d未被处理%n", frame);
             }
