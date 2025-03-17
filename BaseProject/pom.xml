@@ -7,6 +7,42 @@
     <groupId>com.wmj</groupId>
     <artifactId>BaseProject</artifactId>
     <version>1.0-SNAPSHOT</version>
+    
+    <packaging>jar</packaging>
+    <description>这个是基础的类的整合包</description>
+    
 
+    <dependencies>
+        <!-- =========================lombok类========================= -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+        </dependency>
+
+        <!-- =========================junit类========================= -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- =========================hutool类========================= -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.35</version>
+        </dependency>
+
+        <!-- =========================fastjson类========================= -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.83_noneautotype</version>
+        </dependency>
+        
+        
+    </dependencies>
 
 </project>
