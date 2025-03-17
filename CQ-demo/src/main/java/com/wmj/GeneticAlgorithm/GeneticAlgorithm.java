@@ -10,7 +10,13 @@ import java.util.*;
  */
 public class GeneticAlgorithm {
 
-    // 计算适应度函数
+    /**
+     * 计算适应度函数
+     * @param individual
+     * @param tasks
+     * @param resourceNodes
+     * @return
+     */
     public static double calculateFitness(List<Integer> individual, List<Task> tasks, List<ResourceNode> resourceNodes) {
         // 将个体解码为任务分配方案
         Map<Integer, Integer> taskAssignment = new HashMap<>();
@@ -51,7 +57,13 @@ public class GeneticAlgorithm {
         return fitness;
     }
 
-    // 选择操作（轮盘赌选择）
+    /**
+     * 选择操作（轮盘赌选择）
+     * @param population
+     * @param fitnessScores
+     * @param numParents
+     * @return
+     */
     public static List<List<Integer>> selection(List<List<Integer>> population, List<Double> fitnessScores, int numParents) {
         List<List<Integer>> parents = new ArrayList<>();
         double fitnessSum = fitnessScores.stream().mapToDouble(Double::doubleValue).sum();
@@ -75,7 +87,12 @@ public class GeneticAlgorithm {
         return parents;
     }
 
-    // 交叉操作（单点交叉）
+    /**
+     * 交叉操作（单点交叉）
+     * @param parents
+     * @param numOffspring
+     * @return
+     */
     public static List<List<Integer>> crossover(List<List<Integer>> parents, int numOffspring) {
         List<List<Integer>> offspring = new ArrayList<>();
         Random random = new Random();
@@ -93,7 +110,13 @@ public class GeneticAlgorithm {
         return offspring;
     }
 
-    // 变异操作
+    /**
+     * 变异操作
+     * @param offspring
+     * @param mutationRate
+     * @param resourceNodes
+     * @return
+     */
     public static List<List<Integer>> mutation(List<List<Integer>> offspring, double mutationRate, List<ResourceNode> resourceNodes) {
         Random random = new Random();
         for (List<Integer> individual : offspring) {
@@ -107,7 +130,12 @@ public class GeneticAlgorithm {
         return offspring;
     }
 
-    // 遗传算法主流程
+    /**
+     * 遗传算法主流程
+     * @param tasks
+     * @param resourceNodes
+     * @return
+     */
     public static List<Integer> run(List<Task> tasks, List<ResourceNode> resourceNodes) {
         int numGenerations = 100;
         int populationSize = 50;
@@ -152,7 +180,13 @@ public class GeneticAlgorithm {
         return population.get(bestIndex);
     }
 
-    // 种群初始化
+    /**
+     * 种群初始化
+     * @param numIndividuals
+     * @param tasks
+     * @param resourceNodes
+     * @return
+     */
     private static List<List<Integer>> initializePopulation(int numIndividuals, List<Task> tasks, List<ResourceNode> resourceNodes) {
         List<List<Integer>> population = new ArrayList<>();
         Random random = new Random();
