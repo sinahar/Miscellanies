@@ -15,7 +15,6 @@ public class Task {
     int taskId;
     String videoPath; // 视频文件路径
     double dataSize;  // 任务数据大小
-    int priority;     // 任务优先级
     int frameStart;   // 视频帧起始位置
     int frameEnd;     // 视频帧结束位置
 }

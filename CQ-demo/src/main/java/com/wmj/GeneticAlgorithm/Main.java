@@ -18,12 +18,11 @@ public class Main {
     public static void main(String[] args) {
         // 视频流参数
         String videoPath = "input_video.mp4";
-        int totalFrames = 100; // 总帧数
-        double dataSizePerFrame = 10.0; // 每帧数据大小
-        int priority = 3; // 任务优先级
+        int totalFrames = 10000; // 总帧数
+        double dataSizePerFrame = 1.0; // 每帧数据大小 (MB)
 
         // 分割视频流为任务
-        List<Task> tasks = VideoStreamSplitter.splitVideoStream(videoPath, totalFrames, dataSizePerFrame, priority);
+        List<Task> tasks = VideoStreamSplitter.splitVideoStream(videoPath, totalFrames, dataSizePerFrame);
 
         // 初始化资源节点
         List<ResourceNode> resourceNodes = new ArrayList<>();
@@ -51,7 +50,7 @@ public class Main {
 
         // 等待任务处理完成
         try {
-            Thread.sleep(5000); // 等待5秒让任务处理完成
+            Thread.sleep(10000); // 等待10秒让任务处理完成
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
@@ -68,7 +67,7 @@ public class Main {
         // 打印最终负载情况
         System.out.println("\n最终各节点负载情况：");
         for (ResourceNode node : resourceNodes) {
-            System.out.printf("节点%d的当前负载：%.2f%n", node.nodeId, node.currentLoad);
+            System.out.printf("节点%d的当前负载：%.2f MB%n", node.nodeId, node.currentLoad);
         }
     }
 }

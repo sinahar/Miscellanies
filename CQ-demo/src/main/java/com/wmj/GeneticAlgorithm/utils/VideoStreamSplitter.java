@@ -18,16 +18,15 @@ public class VideoStreamSplitter {
      * @param videoPath
      * @param totalFrames
      * @param dataSizePerFrame
-     * @param priority
      * @return
      */
-    public static List<Task> splitVideoStream(String videoPath, int totalFrames, double dataSizePerFrame, int priority) {
+    public static List<Task> splitVideoStream(String videoPath, int totalFrames, double dataSizePerFrame) {
         List<Task> tasks = new ArrayList<>();
         for (int i = 0; i < totalFrames; i += 10) {
             int frameStart = i;
             int frameEnd = Math.min(i + 9, totalFrames - 1);
             double dataSize = (frameEnd - frameStart + 1) * dataSizePerFrame;
-            tasks.add(new Task(tasks.size() + 1, videoPath, dataSize, priority, frameStart, frameEnd));
+            tasks.add(new Task(tasks.size() + 1, videoPath, dataSize, frameStart, frameEnd));
         }
         return tasks;
     }
